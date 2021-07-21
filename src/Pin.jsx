@@ -28,10 +28,10 @@ export default class Pin extends Component {
     return (
       <div>
 
-       <div className="hint hint--html hint--info hint--top" style={style}>
+       <button className="hint hint--html hint--info hint--top" style={style}>
 
 
-       </div>
+       </button>
       </div>
     );
   }

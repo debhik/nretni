@@ -4,7 +4,6 @@ import  Select  from 'react-select'
 import city from './city'
 import mapstyle from './mapstyle';
 
-
 import Pin from './Pin.jsx';
 const searchList = city.map(
 (c) => {
@@ -219,7 +218,7 @@ class SimpleMap extends Component {
   render() {
     return (
       <>
-      <div style={{ height: '10vh', width: '100%' }}>
+      <div style={{ position: "absolute",top:'2vh' ,right:'1%' ,height: '1vh', width: '75%' }}>
       <Select
         value={this.selectedcity}
         options={searchList}
@@ -228,7 +227,15 @@ class SimpleMap extends Component {
         openMenuOnClick={false}
       />
       </div>
-      <div style={{ height: '90vh', width: '100%' }}>
+      <div style={{ transition: '0.3s'}}>
+        <div class="container">
+          <h4><b>John Doe</b></h4>
+          <p>Architect & Engineer</p>
+        </div>
+    </div>
+
+      <div style={{ position: "absolute",top: '10vh',right: '1%',
+   height: '89vh', width: '75%' }}>
         <GoogleMap
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
@@ -241,6 +248,7 @@ class SimpleMap extends Component {
           {this.marker5()}
         </GoogleMap>
       </div>
+
       </>
 
     );
