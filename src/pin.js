@@ -1,4 +1,4 @@
-const K_SIZE = 20;
+const K_SIZE = 30;
 const pin_main={
   position: 'relative',
   width: K_SIZE,

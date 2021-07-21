@@ -3,6 +3,9 @@ import GoogleMap from 'google-map-react';
 import  Select  from 'react-select'
 import city from './city'
 import mapstyle from './mapstyle';
+import MediaCard from './MediaCard.js';
+import ico from './ico.jpg'
+import './min.css';
 
 import Pin from './Pin.jsx';
 const searchList = city.map(
@@ -169,7 +172,7 @@ class SimpleMap extends Component {
           lat={this.state.selectedcity_lat}
           lng={this.state.selectedcity_lng}
           text={this.state.selectedcity}
-          style="1"
+          set="1"
           />
 
     }
@@ -180,7 +183,7 @@ class SimpleMap extends Component {
             lat={this.state.less_lat}
             lng={this.state.less_lng}
             text={this.state.less}
-            style="2"
+            set="2"
             />
       }
   }
@@ -190,7 +193,7 @@ class SimpleMap extends Component {
               lat={this.state.city1_lat}
               lng={this.state.city1_lng}
               text={this.state.city1}
-              style="3"
+              set="3"
               />
         }
     }
@@ -200,7 +203,7 @@ class SimpleMap extends Component {
                 lat={this.state.city2_lat}
                 lng={this.state.city2_lng}
                 text={this.state.city2}
-                style="3"
+                set="3"
                 />
           }
     }
@@ -209,7 +212,7 @@ class SimpleMap extends Component {
                 return <Pin
                   lat={this.state.city3_lat}
                   lng={this.state.city3_lng}
-                  style="3"
+                  set="3"
                   text={this.state.city3}
                   />
             }
@@ -218,7 +221,22 @@ class SimpleMap extends Component {
   render() {
     return (
       <>
-      <div style={{ position: "absolute",top:'2vh' ,right:'1%' ,height: '1vh', width: '75%' }}>
+      <div style={{ position: "absolute",top:'1vh' ,left:'1%' }}>
+      <img src={ico} alt="TNN" height= "90"></img>
+      <div style={{left: '2%'}}> &emsp; &emsp; Travel in New Normal</div>
+      </div>
+      <div className="Bar" style={{ position: "absolute",top:'20vh' ,left:'3%' ,height: '1vh', width: '13%' }}>
+      <MediaCard set="1" text="Red" about="Place you selected"
+      />
+      <br/>
+      <MediaCard set="2" text="White" about="Less crowded place that you may like to visit"
+      />
+      <br/>
+      <MediaCard set="3" text="Yellow" about="Similar alternatives you can visit"
+      />
+
+      </div>
+      <div className="Bar" style={{ position: "absolute",top:'2vh' ,right:'1%' ,height: '1vh', width: '80%' }}>
       <Select
         value={this.selectedcity}
         options={searchList}
@@ -227,15 +245,10 @@ class SimpleMap extends Component {
         openMenuOnClick={false}
       />
       </div>
-      <div style={{ transition: '0.3s'}}>
-        <div class="container">
-          <h4><b>John Doe</b></h4>
-          <p>Architect & Engineer</p>
-        </div>
-    </div>
+
 
       <div style={{ position: "absolute",top: '10vh',right: '1%',
-   height: '89vh', width: '75%' }}>
+   height: '89vh', width: '80%' }}>
         <GoogleMap
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
